@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /admin/keystore_lib
+CMAKE_SOURCE_DIR = /admin/release_keystore/test_dal-keystore
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /admin/keystore_lib
+CMAKE_BINARY_DIR = /admin/release_keystore/test_dal-keystore
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,14 +126,14 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /admin/keystore_lib/CMakeFiles /admin/keystore_lib/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /admin/keystore_lib/CMakeFiles 0
+	cd /admin/release_keystore/test_dal-keystore && $(CMAKE_COMMAND) -E cmake_progress_start /admin/release_keystore/test_dal-keystore/CMakeFiles /admin/release_keystore/test_dal-keystore/keystore_lib/CMakeFiles/progress.marks
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /admin/release_keystore/test_dal-keystore/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,43 +143,47 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /admin/release_keystore/test_dal-keystore && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ksutil
+# Convenience name for target.
+keystore_lib/CMakeFiles/ksutil.dir/rule:
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/CMakeFiles/ksutil.dir/rule
+.PHONY : keystore_lib/CMakeFiles/ksutil.dir/rule
 
-# Build rule for target.
-ksutil: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ksutil
+# Convenience name for target.
+ksutil: keystore_lib/CMakeFiles/ksutil.dir/rule
+
 .PHONY : ksutil
 
 # fast build rule for target.
 ksutil/fast:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/build
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/build
 .PHONY : ksutil/fast
 
-#=============================================================================
-# Target rules for targets named ias-security-keystore_lib_static
+# Convenience name for target.
+keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/rule:
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f CMakeFiles/Makefile2 keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/rule
+.PHONY : keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/rule
 
-# Build rule for target.
-ias-security-keystore_lib_static: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ias-security-keystore_lib_static
+# Convenience name for target.
+ias-security-keystore_lib_static: keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/rule
+
 .PHONY : ias-security-keystore_lib_static
 
 # fast build rule for target.
 ias-security-keystore_lib_static/fast:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/build
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build
 .PHONY : ias-security-keystore_lib_static/fast
 
 src/lib/IasKeystoreLib.o: src/lib/IasKeystoreLib.cpp.o
@@ -188,7 +192,7 @@ src/lib/IasKeystoreLib.o: src/lib/IasKeystoreLib.cpp.o
 
 # target to build an object file
 src/lib/IasKeystoreLib.cpp.o:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.o
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.o
 .PHONY : src/lib/IasKeystoreLib.cpp.o
 
 src/lib/IasKeystoreLib.i: src/lib/IasKeystoreLib.cpp.i
@@ -197,7 +201,7 @@ src/lib/IasKeystoreLib.i: src/lib/IasKeystoreLib.cpp.i
 
 # target to preprocess a source file
 src/lib/IasKeystoreLib.cpp.i:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.i
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.i
 .PHONY : src/lib/IasKeystoreLib.cpp.i
 
 src/lib/IasKeystoreLib.s: src/lib/IasKeystoreLib.cpp.s
@@ -206,7 +210,7 @@ src/lib/IasKeystoreLib.s: src/lib/IasKeystoreLib.cpp.s
 
 # target to generate assembly for a file
 src/lib/IasKeystoreLib.cpp.s:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.s
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/IasKeystoreLib.cpp.s
 .PHONY : src/lib/IasKeystoreLib.cpp.s
 
 src/lib/ias_keystore.o: src/lib/ias_keystore.c.o
@@ -215,7 +219,7 @@ src/lib/ias_keystore.o: src/lib/ias_keystore.c.o
 
 # target to build an object file
 src/lib/ias_keystore.c.o:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.o
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.o
 .PHONY : src/lib/ias_keystore.c.o
 
 src/lib/ias_keystore.i: src/lib/ias_keystore.c.i
@@ -224,7 +228,7 @@ src/lib/ias_keystore.i: src/lib/ias_keystore.c.i
 
 # target to preprocess a source file
 src/lib/ias_keystore.c.i:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.i
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.i
 .PHONY : src/lib/ias_keystore.c.i
 
 src/lib/ias_keystore.s: src/lib/ias_keystore.c.s
@@ -233,7 +237,7 @@ src/lib/ias_keystore.s: src/lib/ias_keystore.c.s
 
 # target to generate assembly for a file
 src/lib/ias_keystore.c.s:
-	$(MAKE) -f CMakeFiles/ias-security-keystore_lib_static.dir/build.make CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.s
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/build.make keystore_lib/CMakeFiles/ias-security-keystore_lib_static.dir/src/lib/ias_keystore.c.s
 .PHONY : src/lib/ias_keystore.c.s
 
 src/util/ks_smoke.o: src/util/ks_smoke.c.o
@@ -242,7 +246,7 @@ src/util/ks_smoke.o: src/util/ks_smoke.c.o
 
 # target to build an object file
 src/util/ks_smoke.c.o:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ks_smoke.c.o
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ks_smoke.c.o
 .PHONY : src/util/ks_smoke.c.o
 
 src/util/ks_smoke.i: src/util/ks_smoke.c.i
@@ -251,7 +255,7 @@ src/util/ks_smoke.i: src/util/ks_smoke.c.i
 
 # target to preprocess a source file
 src/util/ks_smoke.c.i:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ks_smoke.c.i
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ks_smoke.c.i
 .PHONY : src/util/ks_smoke.c.i
 
 src/util/ks_smoke.s: src/util/ks_smoke.c.s
@@ -260,7 +264,7 @@ src/util/ks_smoke.s: src/util/ks_smoke.c.s
 
 # target to generate assembly for a file
 src/util/ks_smoke.c.s:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ks_smoke.c.s
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ks_smoke.c.s
 .PHONY : src/util/ks_smoke.c.s
 
 src/util/ksutil.o: src/util/ksutil.cpp.o
@@ -269,7 +273,7 @@ src/util/ksutil.o: src/util/ksutil.cpp.o
 
 # target to build an object file
 src/util/ksutil.cpp.o:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ksutil.cpp.o
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ksutil.cpp.o
 .PHONY : src/util/ksutil.cpp.o
 
 src/util/ksutil.i: src/util/ksutil.cpp.i
@@ -278,7 +282,7 @@ src/util/ksutil.i: src/util/ksutil.cpp.i
 
 # target to preprocess a source file
 src/util/ksutil.cpp.i:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ksutil.cpp.i
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ksutil.cpp.i
 .PHONY : src/util/ksutil.cpp.i
 
 src/util/ksutil.s: src/util/ksutil.cpp.s
@@ -287,7 +291,7 @@ src/util/ksutil.s: src/util/ksutil.cpp.s
 
 # target to generate assembly for a file
 src/util/ksutil.cpp.s:
-	$(MAKE) -f CMakeFiles/ksutil.dir/build.make CMakeFiles/ksutil.dir/src/util/ksutil.cpp.s
+	cd /admin/release_keystore/test_dal-keystore && $(MAKE) -f keystore_lib/CMakeFiles/ksutil.dir/build.make keystore_lib/CMakeFiles/ksutil.dir/src/util/ksutil.cpp.s
 .PHONY : src/util/ksutil.cpp.s
 
 # Help Target
@@ -327,6 +331,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /admin/release_keystore/test_dal-keystore && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
