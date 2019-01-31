@@ -1,0 +1,16 @@
+Introduction:
+
+1. dal_ks_initd is a program used to download keystore applet(Kestore.dalp) into TEE.
+2. dal_ks_initd.sh is the script in "script" folder used to perform the necessary check and download.
+3. dal_ks_initd.conf contains the path of Keystore.dalp and its ID. 
+
+Usage:
+
+./dal_ks_initd.sh dal_ks_initd.conf
+
+Notes:
+1. Make sure the platform have JHI enabled.
+2. OEM SD needs to be installed before downloading the keystore applet.
+3. Keystore.dalp needs to be signed before use. 
+4. "INTEL_SD_UUID" in "dal_ks_initd.sh" is associated with the OEM SD delivered by Intel.
+5. Contact Production AE for above details. 
