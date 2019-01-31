@@ -31,8 +31,9 @@
 
 4. Installing the Security Domain(SD):
 -------------------------------------
-	4.1. if the Security Domain is named as 'OEM-SD.acp', it can be installed on the platform by executing the following command.
-	/usr/sbin/DAL-Tool installSD -sd OEM-SD.acp
+	4.1. if the Security Domain is named as 'OEM-SD.acp', it can be installed on the platform
+	by executing the following command.
+		/usr/sbin/DAL-Tool installSD -sd OEM-SD.acp
 
 
 5. Preparing the DAL keystore applet file:
@@ -43,14 +44,17 @@
 6. Signing the applet by OEM keys:
 ----------------------------------
 	It is assumed that, as an example, OEM SD has an ID equals to 'faa5db69eb0545f0ad48079b456986ea'
-	6.1 execute the following command to attach the OEM signature to the applet, use the private key and public key generated for SD request(2.2), change their names as below.(assuming all inputs are in "/var/lib/intel/dal/applets/)
+	6.1 execute the following command to attach the OEM signature to the applet, use the 
+	private key and public key generated for SD request(2.2), change their names as below.
+	(assuming all inputs are in "/var/lib/intel/dal/applets/)
 		./DAL-OEM-Signer sign Keystore.dalp private-key.pem public-key.pem faa5db69eb0545f0ad48079b456986ea
 
 		private-key.pem ---- (input)OEM RSA private 2048-bit key in pem format.
 		public-key.pem  ---- (input)OEM RSA public 2048-bit key in pem format.
 		faa5db69eb0545f0ad48079b456986ea ---- (input)OEM SD ID
 
-6.2 Now Keystore.dalp is attached with OEM signature. Don't forget to copy signed applet to "/var/lib/intel/dal/applets/", if signing is not performed in this folder.
+6.2 Now Keystore.dalp is attached with OEM signature. Don't forget to copy signed applet to "/var/lib/intel/dal/applets/",
+if signing is not performed in this folder.
 
 
 7. Install Keystore.dalp to production platform:
