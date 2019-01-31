@@ -1,0 +1,2 @@
+./dal_ks_initd.sh dal_ks_initd.conf
+Notes: the "SD UUID" in "dal_ks_initd.sh" needs to be replaced with the ID of SD installed on the platform

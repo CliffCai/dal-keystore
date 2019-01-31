@@ -1,0 +1,9 @@
+# Overview #
+
+The Keystore Utility (ksutil) is a command line utility
+to demonstrate functionality of the Keystore User-space library (keystore_lib).
+
+Test cases:
+ksutil-wrap.sh - Wrap a 256-bit random key.
+ksutil-encrypt.sh - Use the wrapped key to encrypt/decrypt a plain text.   
+ksutil-encrypt2.sh - Load the wrapped key by another application   
