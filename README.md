@@ -27,7 +27,7 @@
 		b. /lib64/libias-security-keystore_lib_static.a : keystore library
 		c. /usr/include/IasKeystoreLib.hpp : header file of keystore library
 		d. /usr/sbin/dal_ks_initd : daemon to install keystore applet
-		e. /var/lib/intel/dal/applets/Keystore.dalp : keystore applet
+		e. /usr/lib/dal/applets/Keystore.dalp : keystore applet
 
 4. Installing the Security Domain(SD):
 -------------------------------------
@@ -38,7 +38,7 @@
 
 5. Preparing the DAL keystore applet file:
 -----------------------------------------
-	5.1. Use prebuilt Keystore.dalp installed in "/var/lib/intel/dal/applets/Keystore.dalp" 
+	5.1. Use prebuilt Keystore.dalp installed in "/usr/lib/dal/applets/Keystore.dalp" 
 
 
 6. Signing the applet by OEM keys:
@@ -46,14 +46,14 @@
 	It is assumed that, as an example, OEM SD has an ID equals to 'faa5db69eb0545f0ad48079b456986ea'
 	6.1 execute the following command to attach the OEM signature to the applet, use the 
 	private key and public key generated for SD request(2.2), change their names as below.
-	(assuming all inputs are in "/var/lib/intel/dal/applets/)
+	(assuming all inputs are in "/usr/lib/dal/applets/)
 		./DAL-OEM-Signer sign Keystore.dalp private-key.pem public-key.pem faa5db69eb0545f0ad48079b456986ea
 
 		private-key.pem ---- (input)OEM RSA private 2048-bit key in pem format.
 		public-key.pem  ---- (input)OEM RSA public 2048-bit key in pem format.
 		faa5db69eb0545f0ad48079b456986ea ---- (input)OEM SD ID
 
-6.2 Now Keystore.dalp is attached with OEM signature. Don't forget to copy signed applet to "/var/lib/intel/dal/applets/",
+6.2 Now Keystore.dalp is attached with OEM signature. Don't forget to copy signed applet to "/usr/lib/dal/applets/",
 if signing is not performed in this folder.
 
 
