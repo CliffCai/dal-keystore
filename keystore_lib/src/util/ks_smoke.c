@@ -35,8 +35,8 @@ int ks_smoke_encrypt(enum keystore_seed_type seed_type,
   size_t wrapped_key_size = 0;
   char message[] = "This is a very secret message!";
   size_t message_size = sizeof(message);
-  uint8_t iv[KEYSTORE_MAX_IV_SIZE] = { 0x01, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-                                       0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f };
+  uint8_t iv[DAL_KEYSTORE_GCM_IV_SIZE] = { 0x01, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                                       0x08, 0x09, 0x0a, 0x0b };
   size_t encrypted_message_size = 0;
   size_t decrypted_message_size = 0;
   uint32_t slot = 0;
