@@ -63,6 +63,11 @@
 #define KEYSTORE_MAX_IV_SIZE         16
 
 /**
+ * DAL_KEYSTORE_GCM_IV_SIZE - Size of the Initialization Vector for GCM
+ */
+#define DAL_KEYSTORE_GCM_IV_SIZE 12
+
+/**
  * KEYSTORE_ECC_DIGITS - Number of ECC digits used to calculate ECC key sizes
  */
 #define KEYSTORE_ECC_DIGITS          17
