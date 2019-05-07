@@ -873,14 +873,14 @@ int cmdUnload(char *argv[])
 int cmdInitVec(char *argv[])
 {
   int arg, res;
-  uint8_t initVec[KEYSTORE_MAX_IV_SIZE];
+  uint8_t initVec[DAL_KEYSTORE_GCM_IV_SIZE];
   int initVecSize;
 
   /* arg 1: algo_spec */
   arg = 0;
   if (isAES_CCM(argv[arg]) || isAES_GCM(argv[arg]))
   {
-    initVecSize = KEYSTORE_MAX_IV_SIZE;
+    initVecSize = DAL_KEYSTORE_GCM_IV_SIZE;
   }
   else
   {
@@ -923,7 +923,7 @@ int cmdEncrypt(char *argv[])
   uint8_t clientTicket[KEYSTORE_CLIENT_TICKET_SIZE];
   enum keystore_algo_spec algoSpec;
   uint32_t slotId;
-  uint8_t initVec[KEYSTORE_MAX_IV_SIZE];
+  uint8_t initVec[DAL_KEYSTORE_GCM_IV_SIZE];
   size_t initVecSize;
   uint8_t *plainData;
   size_t plainDataSize;
@@ -1008,7 +1008,7 @@ int cmdEncrypt(char *argv[])
     return res;
   }
 
-  encryptedDataBlobSize = encryptedDataSize + KEYSTORE_MAX_IV_SIZE + 1;
+  encryptedDataBlobSize = encryptedDataSize + DAL_KEYSTORE_GCM_IV_SIZE + 1;
   uint8_t *encryptedDataBlob = (uint8_t*) malloc(encryptedDataBlobSize);
   if (!encryptedDataBlob)
   {
@@ -1028,7 +1028,7 @@ if (0 != keystore_memcpy(&encryptedDataBlob[1], initVec, copy_len))
     return -EFAULT;
   }
 
-  uint8_t *encryptedData = &encryptedDataBlob[KEYSTORE_MAX_IV_SIZE + 1];
+  uint8_t *encryptedData = &encryptedDataBlob[DAL_KEYSTORE_GCM_IV_SIZE + 1];
 
   /* api: encrypt */
   ksutilHexdump("clientTicket", clientTicket, sizeof(clientTicket));
@@ -1143,8 +1143,8 @@ int cmdDecrypt(char *argv[])
   }
 
   initVec = &encryptedDataBlob[1];
-  encryptedData = &encryptedDataBlob[KEYSTORE_MAX_IV_SIZE + 1];
-  encryptedDataSize = encryptedDataBlobSize - KEYSTORE_MAX_IV_SIZE - 1;
+  encryptedData = &encryptedDataBlob[DAL_KEYSTORE_GCM_IV_SIZE + 1];
+  encryptedDataSize = encryptedDataBlobSize - DAL_KEYSTORE_GCM_IV_SIZE - 1;
   plainDataSize = encryptedDataSize - 8;
 
   res = ias_keystore_decrypt_size(algoSpec, encryptedDataSize, &plainDataSize);
