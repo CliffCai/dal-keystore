@@ -67,7 +67,7 @@ if signing is not performed in this folder.
 8. Testing: 
 ----------
 	8.1 chmod +x /usr/sbin/ksutil
-	8.2 run "ksutil test" for basic APIs verification(chmod +x /usr/sbin/ksutil)
+	8.2 run "ksutil test" for basic APIs verification
 	8.3 test cases in "test" folder(optional)
 		a. ksutil-wrap.sh - Wrap a 256-bit random key.
 		b. ksutil-encrypt.sh - Use the wrapped key to encrypt/decrypt a plain text.   
