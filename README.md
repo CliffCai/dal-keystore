@@ -28,7 +28,7 @@
 		c. /usr/include/IasKeystoreLib.hpp : header file of keystore library
 		d. /usr/sbin/dal_ks_initd : daemon to install keystore applet
 		e. /usr/lib/dal/applets/Keystore.dalp : keystore applet
-		f. /usr/sbin/DAL-Tool : tool to instal SD
+		f. /usr/sbin/DAL-Tool : tool to install SD
 
 4. Installing the Security Domain(SD):
 -------------------------------------
